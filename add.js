@@ -41,6 +41,24 @@ function test() {
 }
 
 
+//Part One
+
 function add(n) {
     // Let the currying begin!
+    // This refers to the function 
+    // the function will keep its "Static Value"
+    if( typeof this.counter == 'undefined' ) {
+        this.counter = 0;
+    }
+    this.counter += parseInt(n);
+    return this.counter; 
 }
+
+console.log(add(3)) // 3
+console.log(add(2)) // 5
+console.log(add(6)) // 11
+
+//Part 2.
+
+// TODO How to execute function one after another 
+// add(5)(3); //8
