@@ -5,9 +5,9 @@
 var reverse = function(x) {
     
     var array = Math.abs(x).toString().split("");
-    var num = parseInt(array.reverse().join(""));
+    var num = parseInt(array.reverse().join(""));    
 
-    if(num > 2147483648) {
+    if(num > Math.pow(2,31)) {
         return 0;
     }
 
