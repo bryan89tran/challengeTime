@@ -3,6 +3,7 @@
  * @return {number}
  */
 var reverse = function(x) {
+    
     var array = Math.abs(x).toString().split("");
     var num = parseInt(array.reverse().join(""));
 
