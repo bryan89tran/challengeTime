@@ -18,33 +18,26 @@ var romanToInt = function (s) {
     const newArr = arr.reduce((acc, item, i) => {
 
         const num = obj[item]
+        let modNum = acc;
+        while(modNum > 1) {
+            modNum %= 10;
+        }
 
-        if (acc % 10 === 1) {
-                         //5             //10
+        if (modNum === 1) {
             if (item === 'V' || item === 'X') {
                 console.log('===')
                 return acc + (obj[item] - 2);
             }
-
-        }
-        
-        if(acc % 100 === 10) {
-                        //50           //100
-            if (item === 'L' || item === 'C') {
+            else if (item === 'L' || item === 'C') {
                 console.log('===')
                 return acc + (obj[item] - 20);
             }
-        }
-
-        if(acc % 1000 === 100) {
-                        //500           //1000
-            if (item === 'D' || item === 'M') {
+            else if (item === 'D' || item === 'M') {
                 console.log('===')
                 return acc + (obj[item] - 200);
             }
         }
-    
-
+        
         return acc + num;
 
     }, 0);
@@ -54,8 +47,9 @@ var romanToInt = function (s) {
 };
 
 
+// TODO Current file is not working properly
 
-console.log(romanToInt('III'));      // 4
+// console.log(romanToInt('III'));      // 4
 // console.log(romanToInt('IV'));      // 4
 // console.log(romanToInt('IX'));      // 9
 // console.log(romanToInt('LVIII'));   // 58
