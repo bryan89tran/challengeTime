@@ -11,134 +11,103 @@ var convert = function (s, numRows) {
     // boolean is set to when item is at second index of smaller array;
     // Next iternation will be spread
 
-
-    
+    let twoDeminArry = [];
     let isSpread = true; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    let string = '';
-
-    let arr = [];
-    arr[0] = s.split('').splice(0, numRows);
-    // arr
-
-   //length = 10
-   // 3 rows 
-
-   let noSpaces = false;
-
-   let twoDeminArry = [];
-
-   let counter = 0;
+    let mainArrayPosition = 0;
+    let miniArrayPosition = (numRows -1) - 1;
     
-    for(let i = 0; i < s.length; i++) {
+    for(let i = 0; i < s.length; i+=1) {
 
-        if( !noSpaces){
-            twoDeminArry[counter] = s.split('').splice(i , numRows)
-            noSpaces= true;
-            i += numRows;
-            counter++;
-            
-
-
-        }else{
-            let newArr = new Array(numRows);
-            
-            for(var j = 0; j < newArr.length; j++){
-                newArr[i] = '';
-            }
-
-            twoDeminArry[counter] = newArr;
-            counter++;
-
+        if(isSpread){
+            twoDeminArry[mainArrayPosition] = s.split('').splice(i , numRows)
+            isSpread = false;
+            i += (numRows-1);
+        } 
+        else {
+            twoDeminArry[mainArrayPosition] = new Array(numRows);
+            twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
+            miniArrayPosition-=1;
         }
-// twoDeminArry
 
+        if(miniArrayPosition < 1) {
+            miniArrayPosition = (numRows -1) - 1;
+            isSpread = true;
+        }
+        mainArrayPosition+=1;
     }
-   
-    // twoDeminArry
+
+    let rtnString = '';
+
+    for(let j = 0; j < numRows; j+=1) {
+        for(var l = 0; l < twoDeminArry.length; l+=1) {
+            if(twoDeminArry[l][j] !== undefined){
+                rtnString += twoDeminArry[l][j];
+            }
+        }
+    }
     
-
-    
-
-
-
-    let threeDem =
-        [
-            ['P', 'A', 'Y'], ['', 'P', ''],
-            ['A', 'L', 'I'], ['', 'S', ''],
-            ['H', 'I', 'R',], ['', 'I', ''],
-            ['N', 'G', '']
-        ]
-
-    let fiveDem =
-        [
-            ['P', 'A', 'Y','P','A'], ['', '','', 'L', ''],
-            ['', '', 'I', '', ''], ['', 'S', '', '', ''],
-            ['H', 'I', 'R', 'I', 'N'], ['', '', '','G', '']
-        ];
-
-        let mainArrayPosition = 0;
-        let miniArrayPosition = 0;
-
-        // Set empty of numRows = [, , , , ];
-        // twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
-
-        // TODO 2 things
-        // Set Spread to true
-        // and reposition miniArrayPosition
-
-        // spread is true
-            // spread from current i to number of rows
-            // set spread to false
-            // I is incremented to the numRow
-        
-        // spread is false
-            //i now lands on the first spots of spaces
-            //i will now increment +1 only
-            //set new emty array to num rows ['', '','', '', '']
-            // s[i] === 'L'
-            // counter = (numRow - 1) - 1;
-            // s[i][counter] = 'L
-            // twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
-            // twoDeminArry[1][3] = s[i];
-            //set value of i to counter. 
-
-
-    //P     H
-    //A   S I
-    //Y  I  R
-    //P L   I G
-    //A     N
-
-
-
-    // P   A   H   N
-    // A P L S I I G
-    // Y   I   R
-
-
-
-    //P     I    N
-    //A   L S  I G
-    //Y A   H R
-    //P     I
-    return string;
+    return rtnString;
 };
+    
+// PRE WORK
+// Pseudo code 
+    
+// P   A   H   N
+// A P L S I I G
+// Y   I   R
+let threeNumRows =
+    [
+        ['P', 'A', 'Y'], ['', 'P', ''],
+        ['A', 'L', 'I'], ['', 'S', ''],
+        ['H', 'I', 'R',], ['', 'I', ''],
+        ['N', 'G', '']
+    ];
+
+//P     I    N
+//A   L S  I G
+//Y A   H R
+//P     I
+let fourNumRows = 
+    [
+
+    ];
 
 
-console.log(convert("PAYPALISHIRING", 3)); //"PAHNAPLSIIGYIR" 
+//P     H
+//A   S I
+//Y  I  R
+//P L   I G
+//A     N
+let fiveNumRows =
+    [
+        ['P', 'A', 'Y','P','A'], ['', '','', 'L', ''],
+        ['', '', 'I', '', ''], ['', 'S', '', '', ''],
+        ['H', 'I', 'R', 'I', 'N'], ['', '', '','G', '']
+    ];
+
+    // Set empty of numRows = [, , , , ];
+    // twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
+
+    // TODO 2 things
+    // Set Spread to true
+    // and reposition miniArrayPosition
+
+    // spread is true
+        // spread from current i to number of rows
+        // set spread to false
+        // I is incremented to the numRow
+    
+    // spread is false
+        //i now lands on the first spots of spaces
+        //i will now increment +1 only
+        //set new emty array to num rows ['', '','', '', '']
+        // s[i] === 'L'
+        // counter = (numRow - 1) - 1;
+        // s[i][counter] = 'L
+        // twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
+        // twoDeminArry[1][3] = s[i];
+        //set value of i to counter. 
+
+
+// console.log(convert("PAYPALISHIRING", 3)); //"PAHNAPLSIIGYIR" 
 // console.log(convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"
