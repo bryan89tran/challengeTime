@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: zigzag-conversion/app.js | Source: zigzag-conversion/app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+        
+            <link type="text/css" rel="stylesheet" href="styles/custom.css">
+        
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 150px; height: 150px">
+        
+            <a href="https://github.com/nhnent/tui.jsdoc-template" rel="noopener noreferrer" target="_blank">
+                <img src="http://www.keyingkids.com/images/ChaosHead-typing.gif" width="100%" height="100%">
+            </a>
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Source: zigzag-conversion/app.js</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+        <ol class="lnb-tab">
+            <li id="api-tab">
+                <a href="#"><h4>Docs</h4></a>
+            </li>
+            <li id="examples-tab">
+                <a href="#"><h4>Tutorials</h4></a>
+            </li>
+        </ol>
+    
+    <div class="lnb-examples hidden"><h3>Tutorials</h3><ul><li><a href="tutorial-longest-palindromic-substring.html">Longest Palindromic Substring</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="longest-palindromic-substring_sub"></div></li><li><a href="tutorial-longest-substring-without-repeating-characters.html">Longest Substring Without Repeating Characters</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="longest-substring-without-repeating-characters_sub"></div></li><li><a href="tutorial-median-of-two-sorted-arrays.html">Median Of Two Sorted Arrays</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="median-of-two-sorted-arrays_sub"></div></li><li><a href="tutorial-molecule-to-atoms.html">Molecule To Atoms</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="molecule-to-atoms_sub"></div></li><li><a href="tutorial-palindrome-number.html">Palindrom Number</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="palindrome-number_sub"></div></li><li><a href="tutorial-reverse-integer.html">Reverse Integer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="reverse-integer_sub"></div></li><li><a href="tutorial-roman-to-integer.html">Roman To Integer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="roman-to-integer_sub"></div></li><li><a href="tutorial-zigzag-conversion.html">Zig Zag Conversion</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="zigzag-conversion_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#convert">convert</a></li><li><a href="global.html#findMedianSortedArrays">findMedianSortedArrays</a></li><li><a href="global.html#isPalindrome">isPalindrome</a></li><li><a href="global.html#lengthOfLongestSubstring">lengthOfLongestSubstring</a></li><li><a href="global.html#longestPalindrome">longestPalindrome</a></li><li><a href="global.html#mawidthArea">mawidthArea</a></li><li><a href="global.html#reverse">reverse</a></li><li><a href="global.html#romanToInt">romanToInt</a></li><li><a href="global.html#test">test</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function (s, numRows) {
+
+    // String and numbers of rows
+    // Split the String into an array
+    // Loop through the array items and skip by 3 when boolean is true
+    // boolean is set to when item is at second index of smaller array;
+    // Next iternation will be spread
+
+
+    
+    let isSpread = true; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let string = '';
+
+    let arr = [];
+    arr[0] = s.split('').splice(0, numRows);
+    // arr
+
+   //length = 10
+   // 3 rows 
+
+   let noSpaces = false;
+
+   let twoDeminArry = [];
+
+   let counter = 0;
+    
+    for(let i = 0; i &lt; s.length; i++) {
+
+        if( !noSpaces){
+            twoDeminArry[counter] = s.split('').splice(i , numRows)
+            noSpaces= true;
+            i += numRows;
+            counter++;
+            
+
+
+        }else{
+            let newArr = new Array(numRows);
+            
+            for(var j = 0; j &lt; newArr.length; j++){
+                newArr[i] = '';
+            }
+
+            twoDeminArry[counter] = newArr;
+            counter++;
+
+        }
+// twoDeminArry
+
+    }
+   
+    // twoDeminArry
+    
+
+    
+
+
+
+    let threeDem =
+        [
+            ['P', 'A', 'Y'], ['', 'P', ''],
+            ['A', 'L', 'I'], ['', 'S', ''],
+            ['H', 'I', 'R',], ['', 'I', ''],
+            ['N', 'G', '']
+        ]
+
+    let fiveDem =
+        [
+            ['P', 'A', 'Y','P','A'], ['', '','', 'L', ''],
+            ['', '', 'I', '', ''], ['', 'S', '', '', ''],
+            ['H', 'I', 'R', 'I', 'N'], ['', '', '','G', '']
+        ];
+
+        let mainArrayPosition = 0;
+        let miniArrayPosition = 0;
+
+        // Set empty of numRows = [, , , , ];
+        // twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
+
+        // TODO 2 things
+        // Set Spread to true
+        // and reposition miniArrayPosition
+
+        // spread is true
+            // spread from current i to number of rows
+            // set spread to false
+            // I is incremented to the numRow
+        
+        // spread is false
+            //i now lands on the first spots of spaces
+            //i will now increment +1 only
+            //set new emty array to num rows ['', '','', '', '']
+            // s[i] === 'L'
+            // counter = (numRow - 1) - 1;
+            // s[i][counter] = 'L
+            // twoDeminArry[mainArrayPosition][miniArrayPosition] = s[i];
+            // twoDeminArry[1][3] = s[i];
+            //set value of i to counter. 
+
+
+    //P     H
+    //A   S I
+    //Y  I  R
+    //P L   I G
+    //A     N
+
+
+
+    // P   A   H   N
+    // A P L S I I G
+    // Y   I   R
+
+
+
+    //P     I    N
+    //A   L S  I G
+    //Y A   H R
+    //P     I
+    return string;
+};
+
+
+console.log(convert("PAYPALISHIRING", 3)); //"PAHNAPLSIIGYIR" 
+// console.log(convert("PAYPALISHIRING", 4)); // "PINALSIGYAHRPI"</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="http://www.keyingkids.com/images/ChaosHead-typing.gif" style="width: 150px; height: 150px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

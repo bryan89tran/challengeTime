@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: Container-With-Most-Water/app.js | Source: Container-With-Most-Water/app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+        
+            <link type="text/css" rel="stylesheet" href="styles/custom.css">
+        
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 150px; height: 150px">
+        
+            <a href="https://github.com/nhnent/tui.jsdoc-template" rel="noopener noreferrer" target="_blank">
+                <img src="http://www.keyingkids.com/images/ChaosHead-typing.gif" width="100%" height="100%">
+            </a>
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Source: Container-With-Most-Water/app.js</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+        <ol class="lnb-tab">
+            <li id="api-tab">
+                <a href="#"><h4>Docs</h4></a>
+            </li>
+            <li id="examples-tab">
+                <a href="#"><h4>Tutorials</h4></a>
+            </li>
+        </ol>
+    
+    <div class="lnb-examples hidden"><h3>Tutorials</h3><ul><li><a href="tutorial-longest-palindromic-substring.html">Longest Palindromic Substring</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="longest-palindromic-substring_sub"></div></li><li><a href="tutorial-longest-substring-without-repeating-characters.html">Longest Substring Without Repeating Characters</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="longest-substring-without-repeating-characters_sub"></div></li><li><a href="tutorial-median-of-two-sorted-arrays.html">Median Of Two Sorted Arrays</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="median-of-two-sorted-arrays_sub"></div></li><li><a href="tutorial-molecule-to-atoms.html">Molecule To Atoms</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="molecule-to-atoms_sub"></div></li><li><a href="tutorial-palindrome-number.html">Palindrom Number</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="palindrome-number_sub"></div></li><li><a href="tutorial-reverse-integer.html">Reverse Integer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="reverse-integer_sub"></div></li><li><a href="tutorial-roman-to-integer.html">Roman To Integer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="roman-to-integer_sub"></div></li><li><a href="tutorial-zigzag-conversion.html">Zig Zag Conversion</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="zigzag-conversion_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#convert">convert</a></li><li><a href="global.html#findMedianSortedArrays">findMedianSortedArrays</a></li><li><a href="global.html#isPalindrome">isPalindrome</a></li><li><a href="global.html#lengthOfLongestSubstring">lengthOfLongestSubstring</a></li><li><a href="global.html#longestPalindrome">longestPalindrome</a></li><li><a href="global.html#mawidthArea">mawidthArea</a></li><li><a href="global.html#reverse">reverse</a></li><li><a href="global.html#romanToInt">romanToInt</a></li><li><a href="global.html#test">test</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var mawidthArea = function (arr) {
+
+    let count = 0;
+
+    for (var i = 0; i &lt; arr.length; i++) {
+
+        for (var j = i+1; j &lt; arr.length; j++) {
+
+            // width is the difference i and j; aka width;
+            let width = j - i;
+
+            // lowest of current indexes 
+            let height  =  arr[j] > arr[i] ? arr[i]: arr[j];
+
+            //  lowest of height times indexes
+            let total = width * height;
+
+            if( total > count){
+                count = total;
+            }
+
+
+        }
+
+    }
+
+    return count;
+};
+                //   0  1  2  3  4  5  6  7  8
+console.log(mawidthArea([1, 8, 6, 2, 5, 4, 8, 3, 7])) // === Output: 49
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="http://www.keyingkids.com/images/ChaosHead-typing.gif" style="width: 150px; height: 150px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "challengeTime",
+  "version": "1.0.0",
+  "description": "#Top Ten Best Coding Challenge Website For 2018 </br> https://medium.com/coderbyte/the-10-best-coding-challenge-websites-for-2018-12b57645b654",
+  "main": "add.js",
+  "scripts": {
+    "docs": "./node_modules/.bin/jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisMiguelRodriguez/challengeTime.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuisMiguelRodriguez/challengeTime/issues"
+  },
+  "homepage": "https://github.com/LuisMiguelRodriguez/challengeTime#readme",
+  "devDependencies": {
+    "jsdoc": "^3.5.5",
+    "tui-jsdoc-template": "^1.2.2"
+  }
+}
