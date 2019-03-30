@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Roman To Integer | Tutorial: Roman To Integer</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+        
+            <link type="text/css" rel="stylesheet" href="styles/custom.css">
+        
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 150px; height: 150px">
+        
+            <a href="https://github.com/nhnent/tui.jsdoc-template" rel="noopener noreferrer" target="_blank">
+                <img src="http://www.keyingkids.com/images/ChaosHead-typing.gif" width="100%" height="100%">
+            </a>
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Tutorial: Roman To Integer</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+        <ol class="lnb-tab">
+            <li id="api-tab">
+                <a href="#"><h4>Docs</h4></a>
+            </li>
+            <li id="examples-tab">
+                <a href="#"><h4>Tutorials</h4></a>
+            </li>
+        </ol>
+    
+    <div class="lnb-examples hidden"><h3>Tutorials</h3><ul><li><a href="tutorial-longest-palindromic-substring.html">Longest Palindromic Substring</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="longest-palindromic-substring_sub"></div></li><li><a href="tutorial-longest-substring-without-repeating-characters.html">Longest Substring Without Repeating Characters</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="longest-substring-without-repeating-characters_sub"></div></li><li><a href="tutorial-median-of-two-sorted-arrays.html">Median Of Two Sorted Arrays</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="median-of-two-sorted-arrays_sub"></div></li><li><a href="tutorial-molecule-to-atoms.html">Molecule To Atoms</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="molecule-to-atoms_sub"></div></li><li><a href="tutorial-palindrome-number.html">Palindrom Number</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="palindrome-number_sub"></div></li><li><a href="tutorial-reverse-integer.html">Reverse Integer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="reverse-integer_sub"></div></li><li><a href="tutorial-roman-to-integer.html">Roman To Integer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="roman-to-integer_sub"></div></li><li><a href="tutorial-zigzag-conversion.html">Zig Zag Conversion</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="zigzag-conversion_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#convert">convert</a></li><li><a href="global.html#findMedianSortedArrays">findMedianSortedArrays</a></li><li><a href="global.html#isPalindrome">isPalindrome</a></li><li><a href="global.html#lengthOfLongestSubstring">lengthOfLongestSubstring</a></li><li><a href="global.html#longestPalindrome">longestPalindrome</a></li><li><a href="global.html#mawidthArea">mawidthArea</a></li><li><a href="global.html#reverse">reverse</a></li><li><a href="global.html#romanToInt">romanToInt</a></li><li><a href="global.html#test">test</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+<section>
+    <header>
+        
+
+        <h2>Roman To Integer</h2>
+    </header>
+
+    
+        <article class="readme">
+            <p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+<pre class="prettyprint source"><code>Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000</code></pre><p>For example, two is written as II in Roman numeral, just two one's added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
+<ul>
+<li>I can be placed before V (5) and X (10) to make 4 and 9. </li>
+<li>X can be placed before L (50) and C (100) to make 40 and 90. </li>
+<li>C can be placed before D (500) and M (1000) to make 400 and 900.</li>
+</ul>
+<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p>Example 1:</p>
+<pre class="prettyprint source"><code>Input: &quot;III&quot;
+Output: 3</code></pre><p>Example 2:</p>
+<pre class="prettyprint source"><code>Input: &quot;IV&quot;
+Output: 4</code></pre><p>Example 3:</p>
+<pre class="prettyprint source"><code>Input: &quot;IX&quot;
+Output: 9</code></pre><p>Example 4:</p>
+<pre class="prettyprint source"><code>Input: &quot;LVIII&quot;
+Output: 58
+Explanation: L = 50, V= 5, III = 3.</code></pre><p>Example 5:</p>
+<pre class="prettyprint source"><code>Input: &quot;MCMXCIV&quot;
+Output: 1994
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</code></pre><p><a href="https://leetcode.com/problems/roman-to-integer/">Link</a></p>
+        </article>
+    
+</section>
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="http://www.keyingkids.com/images/ChaosHead-typing.gif" style="width: 150px; height: 150px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        showLnbExamples();
+    </script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 /**
- * @param {string} s
+ * @param {string} s A string of Roman numerals
  * @return {number}
  */
 var romanToInt = function (s) {
