@@ -62,19 +62,27 @@ var removeAllPromo = function(cartItems, promoItem1, promoItem2) {
  */
 
 var removeAllPromo = function(cartItems, promoItems) {
-var i;
-var arr = [];
-for(i = 0; i < promoItems.length) {
-    var j;
-    for(j = 0; j < cartItems.length; j+=1){
-        if(promoItems[i] === cartItems[j].id) {
-            arr.push(promoItems[i]);
+    var i;
+    var arr = [];
+    for (i = 0; i < promoItems.length; i+=1) {
+        var j;
+        for(j = 0; j < cartItems.length; j+=1){
+            if(promoItems[i] === cartItems[j].id) {
+                arr.push(promoItems[i]);
+            }
         }
     }
-}
 
-var z;
-for(z = 0; z < arr.length; z+=1) {
+    if (arr.length > 0) {
+        var count = 0;
+        arr.forEach(function(item, i) {
+            mayPromoPostReq("change.js", 0, item, function(){
+                count+=1;
 
-}
+                if(count === arr.length) {
+                    location.reload(true);
+                }
+            });
+        });
+    }
 }
