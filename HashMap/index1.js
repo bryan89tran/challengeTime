@@ -34,21 +34,21 @@ HashMap.prototype.put = function(name) {
 HashMap.prototype.hash = function(key) {
     var max = 100;
     var hash = 0;
-    // if (!key) return hash;
+    var char;
     for (i = 0; i < key.length; i++) {
         char = key.charCodeAt(i);
         hash = (hash << 5) - hash + char;
         hash = hash & hash; // Convert to 32bit integer
     }
     return Math.abs(hash);
-    // return Math.abs(max ? hash % max : hash);
+    return Math.abs(max ? hash % max : hash);
 };
 
 const practiceMap = new HashMap();
 let person = null;
-for (person in people) {
-    practiceMap.set(person, people[person]);
-}
+// for (person in people) {
+//     practiceMap.set(person, people[person]);
+// }
 
 var findPerson = function() {
 
@@ -120,4 +120,5 @@ function inputPerson() {
     });
 }
 
+practiceMap.set("Lesley Montilla", people["Lesley Montilla"]);
 // findPerson();
