@@ -1,73 +1,123 @@
-// const { printTable } = require('console-table-printer');
-
 const people = require("./mock_data.json");
+const inquirer = require("inquirer");
+
+delete console.table;
+require('console.table');
 
 function HashMap() {
-
-  this.list = [];
-
-
+    this.list = [];
 }
 
 /**
  * Insert the key value pair into the hashmap
- * @param {String} key   
+ * @param {String} key
  * @param {Object} value
  * @return {void}
  */
-HashMap.prototype.set = function (key, value) {
+HashMap.prototype.set = function(key, value) {
+    let hashedKey = this.hash(key);
+    value["hash"] = hashedKey.toString();
+    value["name"] = key;
+    this.list[hashedKey] = value;
+};
 
-  let hashedKey = this.hash(key);
-  value["hash"] = hashedKey.toString();
-  value["name"] = key;
-  console.log(hashedKey)
-  this.list[hashedKey] = value;
+HashMap.prototype.get = function(name) {
+    let hashedKey = this.hash(name);
+    console.log(hashedKey);
+    return this.list[hashedKey];
+};
 
-
-}
-
-HashMap.prototype.get = function () {
-
-}
-
-HashMap.prototype.hash = function (key) {
-  var max = 100;
-  var hash = 0;
-  // if (!key) return hash;
-  for (i = 0; i < key.length; i++) {
-    char = key.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32bit integer
-  }
-  return Math.abs(hash);
-  // return Math.abs(max ? hash % max : hash);
+HashMap.prototype.put = function(name) {
 
 }
+
+HashMap.prototype.hash = function(key) {
+    var max = 100;
+    var hash = 0;
+    // if (!key) return hash;
+    for (i = 0; i < key.length; i++) {
+        char = key.charCodeAt(i);
+        hash = (hash << 5) - hash + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return Math.abs(hash);
+    // return Math.abs(max ? hash % max : hash);
+};
 
 const practiceMap = new HashMap();
-practiceMap.set("Alva Penna", people["Alva Penna"]);
-practiceMap.set("Sancho Edmonston", people["Sancho Edmonston"]);
-console.log(practiceMap.list);
-// printTable(practiceMap.list)
+let person = null;
+for (person in people) {
+    practiceMap.set(person, people[person]);
+}
 
-// function(max) {
-// var hash = 0;
-// if (!this.length) return hash;
-// for (i = 0; i < this.length; i++) {
-//   char = this.charCodeAt(i);
-//   hash = ((hash << 5) - hash) + char;
-//   hash = hash & hash; // Convert to 32bit integer
-// }
-// return Math.abs(max ? hash % max : hash);
-// };
+var findPerson = function() {
 
-// const practiceMap2 = new HashMap();
+  inquirer
+  .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Who are you looking for"
+      },
+      {
+        type: "confirm",
+        name: "continue",
+        message: "Look for another person?"
+      }
+  ]).then(function(user) {
+      console.table(practiceMap.get(user.name));
 
-// for (var person in people) {
-//   // console.log(person)
+      if(user.continue) {
+        findPerson();
+      }
+      else {
+        process.exit();
+      }
+  });
+} 
 
-//   practiceMap2.set(person, people[person]);
+// Created a series of questions
+function inputPerson() {
 
-// }
+  inquirer
+      .prompt([
+          {
+              type: "input",
+              name: "name",
+              message: "Who are you???"
+          },
 
-// printTable(practiceMap2.list)
+          {
+              type: "input",
+              name: "email",
+              message: "What is your email"
+          },
+
+          {
+              type: "checkbox",
+              name: "gender",
+              message: "What is your gender ?",
+              choices: ["male", "female"]
+          },
+
+          {
+              type: "input",
+              name: "ip_address",
+              message: "What is your IP address"
+          }
+      ])
+      .then(function(user) {
+          practiceMap.set(user.name, {
+              email: user.email,
+              gender: user.gender,
+              ip_address: user.ip_address
+          });
+
+          console.log(practiceMap.get(user.name));
+
+          findPerson();
+
+    });
+}
+
+// findPerson();
