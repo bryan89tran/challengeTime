@@ -6,13 +6,13 @@
  * @param {(Number|String)}  itemId  ID of variant
  * @param {Callback}         cb      Optional call back on success of Ajax
  */
-var mayPromoPostReq = function(script, amount, itemId, cb) {
+var mayPromoPostReq = function (script, amount, itemId, cb) {
     var params = {
         type: "POST",
         url: "/cart/" + script,
         data: "quantity=" + amount + "&id=" + itemId,
         dataType: "json",
-        success: function() {
+        success: function () {
             if (cb instanceof Function) {
                 cb();
             }
@@ -21,12 +21,12 @@ var mayPromoPostReq = function(script, amount, itemId, cb) {
     $.ajax(params);
 };
 
-var removeAllPromo = function(cartItems, promoItem1, promoItem2) {
+var removeAllPromo = function (cartItems, promoItem1, promoItem2) {
     var isPromoItem1 = false;
     var isPromoItem2 = false;
 
-    var removeItem2 = function() {
-        mayPromoPostReq("change.js", 0, promoItem2, function() {
+    var removeItem2 = function () {
+        mayPromoPostReq("change.js", 0, promoItem2, function () {
             location.reload(true);
         });
     };
@@ -42,7 +42,7 @@ var removeAllPromo = function(cartItems, promoItem1, promoItem2) {
     }
 
     if (isPromoItem1) {
-        mayPromoPostReq("change.js", 0, promoItem1, function() {
+        mayPromoPostReq("change.js", 0, promoItem1, function () {
             if (isPromoItem2) {
                 removeItem2();
             } else {
@@ -61,13 +61,13 @@ var removeAllPromo = function(cartItems, promoItem1, promoItem2) {
  * @param {Array} promoItems  ID's of promo items to be REMOVED from the cart
  */
 
-var removeAllPromo = function(cartItems, promoItems) {
+var removeAllPromo = function (cartItems, promoItems) {
     var i;
     var arr = [];
-    for (i = 0; i < promoItems.length; i+=1) {
+    for (i = 0; i < promoItems.length; i += 1) {
         var j;
-        for(j = 0; j < cartItems.length; j+=1){
-            if(promoItems[i] === cartItems[j].id) {
+        for (j = 0; j < cartItems.length; j += 1) {
+            if (promoItems[i] === cartItems[j].id) {
                 arr.push(promoItems[i]);
             }
         }
@@ -75,14 +75,19 @@ var removeAllPromo = function(cartItems, promoItems) {
 
     if (arr.length > 0) {
         var count = 0;
-        arr.forEach(function(item, i) {
-            mayPromoPostReq("change.js", 0, item, function(){
-                count+=1;
+        arr.forEach(function (item, i) {
+            mayPromoPostReq("change.js", 0, item, function () {
+                count += 1;
 
-                if(count === arr.length) {
+                if (count === arr.length) {
                     location.reload(true);
                 }
             });
         });
     }
 }
+
+
+
+
+
