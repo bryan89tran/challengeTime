@@ -98,7 +98,6 @@ var intToRoman = function (num) {
       }
 
     }
-
     else if (num >= 50) {
 
       let tempNum = Math.floor(num / 10);
@@ -125,10 +124,51 @@ var intToRoman = function (num) {
       let tempNum = Math.floor(num / 10);
       let modOfC = tempNum % 5;
 
-      let romanSymBase = "L";
-      let romanSymNext = "C";
+      let romanSymBase = "X";
+      let romanSymNext = "L";
 
       let currentMulti = 10;
+
+      if (modOfC === 4) {
+        rtnString += romanSymBase + romanSymNext;
+        num -= (4 * currentMulti);
+      }
+      else {
+        rtnString += romanSymBase.repeat(modOfC);
+        num -= (modOfC * currentMulti);
+      }
+
+    }
+    else if (num >= 5) {
+
+      let tempNum = Math.floor(num / 1);
+      let modOfD = tempNum % 5;
+      let romanSymBase = "V";
+      let romanSymSingle = "I";
+      let romanSymNext = "X";
+
+      let currentMulti = 1
+
+      if (modOfD === 4) {
+        rtnString += romanSymSingle + romanSymNext;
+        num -= (9 * currentMulti);
+      }
+
+      else {
+        rtnString += romanSymBase + romanSymSingle.repeat(modOfD);
+        num -= ((5 + modOfD) * currentMulti);
+      }
+
+    }
+    else if (num >= 1) {
+
+      let tempNum = Math.floor(num / 1);
+      let modOfC = tempNum % 5;
+
+      let romanSymBase = "I";
+      let romanSymNext = "V";
+
+      let currentMulti = 1;
 
       if (modOfC === 4) {
         rtnString += romanSymBase + romanSymNext;
@@ -151,6 +191,7 @@ var intToRoman = function (num) {
 // console.log(intToRoman(1100)) //MC
 // console.log(intToRoman(1550)) //MDL
 // console.log(intToRoman(1660)) //MDCLX
-console.log(intToRoman(60)) //LX
+// console.log(intToRoman(60)) //LX
+// console.log(intToRoman(40)) //XL
 
 module.exports = intToRoman;
