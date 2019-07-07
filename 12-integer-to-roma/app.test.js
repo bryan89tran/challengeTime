@@ -1,4 +1,5 @@
-var intToRoman = require('./app');
+// var intToRoman = require('./app');
+var intToRoman = require('./refactored');
 
 describe('intToRoman', () => {
 
