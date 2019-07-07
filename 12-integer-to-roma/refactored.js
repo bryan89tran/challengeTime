@@ -8,23 +8,27 @@
 
 var rndDwnToHighestDec = function(number) {
     let decimalPlaces = number.toString().length -1;
-    return roundedNumber = parseInt("1" + "0".repeat(decimalPlaces));
+    return roundedNumber = +("1" + "0".repeat(decimalPlaces));
 }
 
 /**
  * @param  {number} num
  * @return {string}
  */
-var intToRoman = function(num) {    
+var intToRoman = function(num) {
     const romanNumOnes =  ["I", "X", "C", "M"];
     const romanNumFives = ["V", "L", "D"];
 
     let index = num.toString().length - 1;
     let currentMulti = rndDwnToHighestDec(num);
     let rtnString = "";
+    let five = 5;
+    let nine = 9;
+    let four = 4;
+    let one = 1;
 
     while (num > 0) {
-        const tempNum = Math.floor(num / currentMulti);
+        const tempNum = ~~(num / currentMulti);
         const modules = tempNum % 5;
         
         if (tempNum >= 5) {
