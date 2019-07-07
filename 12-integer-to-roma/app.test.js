@@ -1,4 +1,5 @@
-var intToRoman = require('./app');
+// var intToRoman = require('./app');
+var intToRoman = require('./refactored');
 
 describe('intToRoman', () => {
 
@@ -50,23 +51,32 @@ describe('intToRoman', () => {
   });
 
 
+  it('1110 -> MCM', () => {
+    expect(intToRoman(1110)).toEqual('MCX')
+  });
+  it('1220 -> MCC', () => {
+    expect(intToRoman(1220)).toEqual('MCCXX')
+  });
+  it('1330 -> MCCC', () => {
+    expect(intToRoman(1330)).toEqual('MCCCXXX')
+  });
+  it('1440 -> MCD', () => {
+    expect(intToRoman(1440)).toEqual('MCDXL')
+  });
 
-  //   it('1500 -> MD', () => {
-  //     expect(intToRoman(1500)).toEqual('MD')
-  //   });
-  //   it('3 -> III', () => {
-  //     expect(intToRoman(3)).toEqual('III')
-  //   });
-  //   it('4 -> IV', () => {
-  //     expect(intToRoman(4)).toEqual('IV')
-  //   });
-  //   it('9 -> IX', () => {
-  //     expect(intToRoman(9)).toEqual('IX')
-  //   });
-  //   it('58 -> LVIII Explanation L = 50, V = 5, III = 3.', () => {
-  //     expect(intToRoman(58)).toEqual('LVIII')
-  //   });
-  //   it('1994 -> MCMXCIV Explanation M = 1000, CM = 900, XC = 90 and IV = 4.', () => {
-  //     expect(intToRoman(58)).toEqual('MCMXCIV')
-  //   });
+  it('3 -> III', () => {
+    expect(intToRoman(3)).toEqual('III')
+  });
+  it('4 -> IV', () => {
+    expect(intToRoman(4)).toEqual('IV')
+  });
+  it('9 -> IX', () => {
+    expect(intToRoman(9)).toEqual('IX')
+  });
+  it('58 -> LVIII Explanation L = 50, V = 5, III = 3.', () => {
+    expect(intToRoman(58)).toEqual('LVIII')
+  });
+  it('1994 -> MCMXCIV Explanation M = 1000, CM = 900, XC = 90 and IV = 4.', () => {
+    expect(intToRoman(1994)).toEqual('MCMXCIV')
+  });
 });

@@ -11,33 +11,33 @@ const largestPal = function () {
   let secondNum = 999;
 
 }
-999 x 999
-999 x 998
-999 x 997
-999 x 996
-999 x 995
-999 x 994
-999 x 993
-999 x 992
-999 x 991
-999 x 990
-998 x 990
-998 x 999
-998 x 998
-998 x 997
-998 x 996
-998 x 995
-998 x 994
-998 x 993
-998 x 992
-998 x 991
-998 x 990
-997 x 999
+// 999 x 999
+// 999 x 998
+// 999 x 997
+// 999 x 996
+// 999 x 995
+// 999 x 994
+// 999 x 993
+// 999 x 992
+// 999 x 991
+// 999 x 990
+// 998 x 990
+// 998 x 999
+// 998 x 998
+// 998 x 997
+// 998 x 996
+// 998 x 995
+// 998 x 994
+// 998 x 993
+// 998 x 992
+// 998 x 991
+// 998 x 990
+// 997 x 999
 
-998 x 998
-998 x 997
-997 x 997
-997 x 996
+// 998 x 998
+// 998 x 997
+// 997 x 997
+// 997 x 996
 // console.log(largestPal());
 
 
@@ -96,7 +96,7 @@ const largestPal = function () {
 // 989 x 999
 
 const largestPalOne = function () {
-
+  console.time("largestPalTwo");
   let firstNum = 999;
 
   while (firstNum > 100) {
@@ -114,6 +114,8 @@ const largestPalOne = function () {
         // console.log('straight', stringOfNum)
         // console.log('reverse', stringOfNum.split('').reverse().join())
         console.log("firstNum :", firstNum, "secondNum :", secondNum);
+        console.timeEnd("largestPalTwo");
+
         return total;
       }
 
