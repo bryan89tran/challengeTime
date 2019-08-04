@@ -9,9 +9,9 @@ const prime = function(spot) {
     let primeNumSeen = 0;
     let number = 2;
 
-    while(primeNumSeen < spot) {
+    while(primeNumSeen < spot + 1) {
             let isPrimeNum = true;
-            for(let i = 2; i < number; i+=1) {
+            for(let i = 2; i < number / 2; i+=1) {
                 if(number % i === 0) {
                     isPrimeNum = false;
                     break;
@@ -32,7 +32,7 @@ const prime = function(spot) {
 // console.log(prime(2)); // 3
 // console.log(prime(3)); // 5
 // console.log(prime(6)); // 13
-console.log(prime(10001)); // 13
+console.log(prime(10001)); // 
 
 
 const isPrime = function(number) {
