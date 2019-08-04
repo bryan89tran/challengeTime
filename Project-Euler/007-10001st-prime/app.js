@@ -9,20 +9,20 @@ const prime = function(spot) {
     let primeNumSeen = 0;
     let number = 2;
 
-    while(primeNumSeen < spot + 1) {
-            let isPrimeNum = true;
-            for(let i = 2; i < number / 2; i+=1) {
-                if(number % i === 0) {
-                    isPrimeNum = false;
-                    break;
-                }
+    while(primeNumSeen < spot) {
+        let isPrimeNum = true;
+        for(let i = 2; i <= number / 2; i+=1) {
+            if(number % i === 0) {
+                isPrimeNum = false;
+                break;
             }
+        }
 
-            if(isPrimeNum) {
-                primeNumSeen += 1;
-            }
-            
-            number += 1;
+        if(isPrimeNum) {
+            primeNumSeen += 1;
+        }
+        
+        number += 1;
     }
 
     return number - 1;
