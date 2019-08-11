@@ -54,11 +54,26 @@ function add(n) {
     return this.counter; 
 }
 
-console.log(add(3)) // 3
-console.log(add(2)) // 5
-console.log(add(6)) // 11
+// console.log(add(3)) // 3
+// console.log(add(2)) // 5
+// console.log(add(6)) // 11
 
 //Part 2.
 
 // TODO How to execute function one after another 
 // add(5)(3); //8
+
+// Better
+function hasPairWithSum2(arr, sum){
+  const mySet = new Set();
+  const len = arr.length;
+  for (let i = 0; i < len; i++){
+    if (mySet.has(arr[i])) {
+      return true;
+    }
+    mySet.add(sum - arr[i]);
+  }
+  return false;
+}
+
+hasPairWithSum2([6,4,3,2,1,7], 9)
